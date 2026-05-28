@@ -1,6 +1,6 @@
 # vue-nginx-zero-downtime
 
-一个面向开源分享的 Vue 演示项目，用来整理这套 `Vue 静态站点 + Nginx 无感发布` 的完整方案。
+一个面向 Vue 静态站点的 `Nginx 无感发布` 方案仓库，提供可直接上手的完整示例、发布脚本、Nginx 缓存模板，以及页面内版本更新提示方案。
 
 ## 快速开始建议
 
@@ -8,37 +8,32 @@
 - 更推荐先复制完整示例并跑通 `pnpm install`、`pnpm dev`、`pnpm build:release`
 - `templates/` 更适合已经有现成业务项目，或者已经跑通完整示例之后，再按需摘文件参考
 
-它更适合作为一个“可展示、可复制、可落地”的方案型项目，主要包含：
+它现在更适合作为一个“可直接上手、可按需复制、可逐步拆分”的方案型仓库，主要包含：
 
-- 一页式演示站：讲清楚无感发布的原理、SOP 和缓存策略
-- 更新提示组件：演示版本检测后如何提示用户刷新
-- 模板代码库：包含 `deploy-static-ui.sh`、`prepare-release.mjs`、`nginx` 模板
-- 根路径部署与子路径部署两种 `nginx` 配置示例
+- 完整模板项目：推荐优先从 `examples/basic-vite-app` 开始，先跑通整条发布链路
+- 一页式演示站：用于说明无感发布的原理、SOP 和缓存策略
+- 版本更新提示能力：包含更新提示组件与 `useVersionUpdate` composable
+- 可复用模板：包含 `deploy-static-ui.sh`、`prepare-release.mjs` 和 `nginx` 配置片段
+- 根路径与子路径两种部署方式示例：方便按实际服务器目录选择接入方式
 
-## 适合什么场景
+## 适不适合你
 
-- Vue 3 / Vite 静态站点发布到 `nginx`
-- 前端资源带 hash，希望用户发布时不白屏
-- 多项目共用一套服务器发布脚本
-- 页面里需要“发现新版本，提示刷新”的用户体验
+如果你第一次看这类仓库，最关心的通常不是“原理够不够完整”，而是下面几件事：
 
-## 如果你想先快速判断是否适合，先看这段
-
-第一次看这类仓库时，很多人最关心的往往不是“原理”，而是下面这 4 个问题：
-
-- 我到底应该复制整个示例项目，还是只拿几个文件？
-- 根仓库里的命令，和 `examples/basic-vite-app` 里的命令，分别是干什么的？
-- 我的本地是 Windows / macOS，服务器是 Linux，这套东西到底该在哪边跑？
-- 我线上只有一个 `nginx` 静态目录，没有很复杂的发布平台，还能不能用？
+- 能不能直接复制一套完整示例，而不是自己先拼脚本
+- 根仓库里的命令和 `examples/basic-vite-app` 里的命令分别是干什么的
+- 本地开发机是 Windows / macOS，服务器是 Linux 时，这套流程该分别在哪边跑
+- 线上只有一个普通的 `nginx` 静态目录时，这套方案还能不能落地
 
 如果你的情况和下面类似，这个仓库大概率会比较适合你：
 
 - 你维护的是 Vue / Vite 静态站点，不是 SSR
-- 你可以控制 `nginx` 配置，或者至少能让运维帮你改缓存策略
-- 你可以接受“新版本发布后，用户看到刷新提示，再自行刷新”的交互
+- 你希望前端资源带 hash，发布时旧页面继续可用，不要白屏
+- 你可以控制 `nginx` 缓存策略，或者至少能让运维帮你调整
+- 你可以接受“发现新版本后提示刷新”，而不是强制用户立刻切版本
 - 你想先用一套简单可落地的方案把发布稳定下来，而不是先搭完整 DevOps 平台
 
-如果你想先尽快跑通一遍流程，而不是先阅读所有模板，建议直接从 `examples/basic-vite-app` 开始。
+如果你想先尽快跑通一遍流程，建议直接从 `examples/basic-vite-app` 开始。
 默认情况下，不建议第一次接入就先拆 `templates/`；更推荐先复制完整示例，跑通后再按需回头摘文件。
 
 ## 目录结构
@@ -60,7 +55,15 @@ vue-nginx-zero-downtime/
   │  └─ useVersionUpdate.ts
   ├─ examples/
   │  └─ basic-vite-app/
+  │     ├─ scripts/
+  │     │  ├─ generate-version-json.mjs
+  │     │  └─ prepare-release.mjs
+  │     ├─ .env.production
+  │     ├─ deploy-static-ui.sh
+  │     ├─ package.json
+  │     ├─ vite.config.ts
   │     ├─ public/
+  │     │  └─ version.json
   │     └─ src/
   ├─ CONTRIBUTING.md
   ├─ LICENSE
@@ -68,32 +71,6 @@ vue-nginx-zero-downtime/
   ├─ REPOSITORY_PROFILE.md
   └─ README.md
 ```
-
-## 本地启动
-
-```bash
-pnpm install
-pnpm dev
-```
-
-## 生产构建
-
-```bash
-pnpm build
-```
-
-这里有一个比较容易混淆的点：
-
-- 根仓库执行 `pnpm dev` / `pnpm build`，启动和构建的是“演示站”
-- `build:release` 不在根仓库，而是在 `examples/basic-vite-app` 里
-- 如果你想跑通“可上传到服务器的发布包流程”，可以进入 `examples/basic-vite-app`
-
-## 本地与服务器分别跑什么
-
-- 本地开发机可以是 Windows、macOS 或 Linux，用来运行 `pnpm install`、`pnpm dev`、`pnpm build`
-- 服务器发布脚本 `deploy-static-ui.sh` 是给 Linux + `nginx` 服务器用的，不是给本地 Windows 直接执行的
-- 如果服务器没有 `rsync`，脚本也会退回到 `tar` 方式同步文件
-- 页面里的版本检测逻辑跑在浏览器中，依赖的是线上可访问的 `version.json`
 
 ## 从哪里开始
 
@@ -124,6 +101,37 @@ pnpm build:release
 - `scripts/prepare-release.mjs`
 - `package.json` 里的 `build:release`
 - `deploy-static-ui.sh`
+
+## 根仓库演示站怎么跑
+
+如果你只是想先落地发布流程，可以直接看上面的 `examples/basic-vite-app`。
+下面这些命令对应的是根仓库里的“演示站”，主要用来阅读方案说明、查看交互演示和模板展示。
+
+### 本地启动
+
+```bash
+pnpm install
+pnpm dev
+```
+
+### 生产构建
+
+```bash
+pnpm build
+```
+
+这里有一个比较容易混淆的点：
+
+- 根仓库执行 `pnpm dev` / `pnpm build`，启动和构建的是“演示站”
+- `build:release` 不在根仓库，而是在 `examples/basic-vite-app` 里
+- 如果你想跑通“可上传到服务器的发布包流程”，可以进入 `examples/basic-vite-app`
+
+## 本地与服务器分别跑什么
+
+- 本地开发机可以是 Windows、macOS 或 Linux，用来运行 `pnpm install`、`pnpm dev`、`pnpm build`
+- 服务器发布脚本 `deploy-static-ui.sh` 是给 Linux + `nginx` 服务器用的，不是给本地 Windows 直接执行的
+- 如果服务器没有 `rsync`，脚本也会退回到 `tar` 方式同步文件
+- 页面里的版本检测逻辑跑在浏览器中，依赖的是线上可访问的 `version.json`
 
 ## 仓库补充文件
 
