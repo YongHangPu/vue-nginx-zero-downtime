@@ -1,0 +1,40 @@
+{
+  "name": "vue-nginx-zero-downtime",
+  "private": false,
+  "version": "0.1.0",
+  "description": "Vue + Nginx 无感发布演示站，包含发布脚本、Nginx 模板和版本更新提示组件。",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YongHangPu/vue-nginx-zero-downtime.git"
+  },
+  "homepage": "https://github.com/YongHangPu/vue-nginx-zero-downtime",
+  "bugs": {
+    "url": "https://github.com/YongHangPu/vue-nginx-zero-downtime/issues"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "vue",
+    "nginx",
+    "deploy",
+    "zero-downtime",
+    "version-update"
+  ],
+  "dependencies": {
+    "vue": "^3.5.34"
+  },
+  "devDependencies": {
+    "@types/node": "^24.12.3",
+    "@vitejs/plugin-vue": "^6.0.6",
+    "@vue/tsconfig": "^0.9.1",
+    "typescript": "~6.0.2",
+    "vite": "^8.0.12",
+    "vue-tsc": "^3.2.8"
+  },
+  "packageManager": "pnpm@10.28.2+sha512.41872f037ad22f7348e3b1debbaf7e867cfd448f2726d9cf74c08f19507c31d2c8e7a11525b983febc2df640b5438dee6023ebb1f84ed43cc2d654d2bc326264"
+}
