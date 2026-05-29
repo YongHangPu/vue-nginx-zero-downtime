@@ -181,6 +181,78 @@ pre {
 .hero-metrics {
   display: grid;
   gap: 14px;
+  align-content: start;
+}
+
+.hero-quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 2px;
+}
+
+.hero-quick-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: 14px;
+  border: 1px solid rgba(125, 211, 252, 0.2);
+  background: rgba(6, 20, 33, 0.84);
+  color: #d8f3ff;
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    background-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.hero-quick-link-icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  opacity: 0.92;
+  transition:
+    transform 0.18s ease,
+    opacity 0.18s ease;
+}
+
+.hero-quick-link-icon-gitee {
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.hero-quick-link-arrow {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 10px;
+  height: 10px;
+  opacity: 0.64;
+  transition:
+    transform 0.18s ease,
+    opacity 0.18s ease;
+}
+
+.hero-quick-link:hover {
+  transform: translateY(-1px);
+  border-color: rgba(134, 239, 172, 0.4);
+  background: rgba(10, 32, 48, 0.92);
+  color: #f0fdf4;
+}
+
+.hero-quick-link:hover .hero-quick-link-icon {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.hero-quick-link:hover .hero-quick-link-arrow {
+  transform: translate(1px, -1px);
+  opacity: 1;
 }
 
 .hero-metrics article {
@@ -761,6 +833,10 @@ pre {
   .hero-panel,
   .section-block {
     padding: 22px;
+  }
+
+  .hero-quick-links {
+    justify-content: flex-start;
   }
 
   .fit-card {

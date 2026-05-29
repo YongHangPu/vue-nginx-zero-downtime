@@ -2,20 +2,6 @@
 
 一个面向 Vue 静态站点的 `Nginx 无感发布` 方案仓库，提供可直接上手的完整示例、发布脚本、Nginx 缓存模板，以及页面内版本更新提示方案。
 
-## 快速开始建议
-
-- 如果你是第一次接入这套方案，默认先从 `examples/basic-vite-app` 开始
-- 更推荐先复制完整示例并跑通 `pnpm install`、`pnpm dev`、`pnpm build:release`
-- `templates/` 更适合已经有现成业务项目，或者已经跑通完整示例之后，再按需摘文件参考
-
-它现在更适合作为一个“可直接上手、可按需复制、可逐步拆分”的方案型仓库，主要包含：
-
-- 完整模板项目：推荐优先从 `examples/basic-vite-app` 开始，先跑通整条发布链路
-- 一页式演示站：用于说明无感发布的原理、SOP 和缓存策略
-- 版本更新提示能力：包含更新提示组件与 `useVersionUpdate` composable
-- 可复用模板：包含 `deploy-static-ui.sh`、`prepare-release.mjs` 和 `nginx` 配置片段
-- 根路径与子路径两种部署方式示例：方便按实际服务器目录选择接入方式
-
 ## 适不适合你
 
 如果你第一次看这类仓库，最关心的通常不是“原理够不够完整”，而是下面几件事：
@@ -35,6 +21,20 @@
 
 如果你想先尽快跑通一遍流程，建议直接从 `examples/basic-vite-app` 开始。
 默认情况下，不建议第一次接入就先拆 `templates/`；更推荐先复制完整示例，跑通后再按需回头摘文件。
+
+## 快速开始建议
+
+- 如果你是第一次接入这套方案，默认先从 `examples/basic-vite-app` 开始
+- 更推荐先复制完整示例并跑通 `pnpm install`、`pnpm dev`、`pnpm build:release`
+- `templates/` 更适合已经有现成业务项目，或者已经跑通完整示例之后，再按需摘文件参考
+
+它现在更适合作为一个“可直接上手、可按需复制、可逐步拆分”的方案型仓库，主要包含：
+
+- 完整模板项目：推荐优先从 `examples/basic-vite-app` 开始，先跑通整条发布链路
+- 一页式演示站：用于说明无感发布的原理、SOP 和缓存策略
+- 版本更新提示能力：包含更新提示组件与 `useVersionUpdate` composable
+- 可复用模板：包含 `deploy-static-ui.sh`、`prepare-release.mjs` 和 `nginx` 配置片段
+- 根路径与子路径两种部署方式示例：方便按实际服务器目录选择接入方式
 
 ## 目录结构
 

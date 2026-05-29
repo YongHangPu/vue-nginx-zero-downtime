@@ -2,20 +2,6 @@
 
 A practical `Nginx zero-downtime deployment` solution repository for Vue static apps, with a ready-to-use starter example, release scripts, Nginx cache templates, and in-app version update prompting.
 
-## Quick Start Note
-
-- If this is your first time integrating this workflow, start with `examples/basic-vite-app`
-- It is better to copy the full example first and run `pnpm install`, `pnpm dev`, and `pnpm build:release`
-- Use `templates/` later when you already have an existing project, or after you have run through the full example once
-
-This repository now works best as a solution-focused starter that you can run directly, copy in parts, and gradually split into your own project. It includes:
-
-- A full starter project: begin with `examples/basic-vite-app` to run through the full release flow first
-- A single-page demo site that explains the deployment model, release SOP, and caching strategy
-- In-app version update prompting: including the notification component and `useVersionUpdate()` composable
-- Reusable templates: including `deploy-static-ui.sh`, `prepare-release.mjs`, and Nginx config snippets
-- Examples for both root-path and subpath deployment modes
-
 ## Is This A Good Fit?
 
 If this is your first time looking at a repository like this, the main questions are usually not about theory first, but about practical fit:
@@ -35,6 +21,20 @@ This repository is usually a good fit when:
 
 If you want to get a full working flow running first, start directly from `examples/basic-vite-app`.
 For a first integration, it is better to copy the full example first rather than assembling files from `templates/`.
+
+## Quick Start Note
+
+- If this is your first time integrating this workflow, start with `examples/basic-vite-app`
+- It is better to copy the full example first and run `pnpm install`, `pnpm dev`, and `pnpm build:release`
+- Use `templates/` later when you already have an existing project, or after you have run through the full example once
+
+This repository now works best as a solution-focused starter that you can run directly, copy in parts, and gradually split into your own project. It includes:
+
+- A full starter project: begin with `examples/basic-vite-app` to run through the full release flow first
+- A single-page demo site that explains the deployment model, release SOP, and caching strategy
+- In-app version update prompting: including the notification component and `useVersionUpdate()` composable
+- Reusable templates: including `deploy-static-ui.sh`, `prepare-release.mjs`, and Nginx config snippets
+- Examples for both root-path and subpath deployment modes
 
 ## Where To Start
 

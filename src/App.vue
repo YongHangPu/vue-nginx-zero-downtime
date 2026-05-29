@@ -144,6 +144,24 @@ const startHereCards = [
   }
 ]
 
+const projectLinks = [
+  {
+    label: 'GitHub 主页',
+    href: 'https://github.com/YongHangPu',
+    icon: 'github'
+  },
+  {
+    label: 'GitHub 仓库',
+    href: 'https://github.com/YongHangPu/vue-nginx-zero-downtime',
+    icon: 'repository'
+  },
+  {
+    label: 'Gitee 仓库',
+    href: 'https://gitee.com/yonghangpu/vue-nginx-zero-downtime',
+    icon: 'gitee'
+  }
+]
+
 const starterChecklist = [
   '可以先复制 examples/basic-vite-app 整个目录',
   '进入 examples/basic-vite-app 后，再运行 pnpm install、pnpm dev、pnpm build:release',
@@ -263,6 +281,48 @@ const copyCurrentTemplate = async () => {
         <p class="hero-note">建议阅读顺序：先判断适用性，再跑完整模板，最后按需看路径模式和模板代码。</p>
       </div>
       <div class="hero-metrics">
+        <div class="hero-quick-links">
+          <a
+            v-for="item in projectLinks"
+            :key="item.href"
+            :href="item.href"
+            class="hero-quick-link"
+            target="_blank"
+            rel="noreferrer"
+            :title="item.label"
+            :aria-label="item.label"
+          >
+            <svg v-if="item.icon === 'github'" viewBox="0 0 16 16" aria-hidden="true" class="hero-quick-link-icon">
+              <path
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59c.4.07.55-.17.55-.38c0-.19-.01-.82-.01-1.49c-2.01.37-2.53-.49-2.69-.94c-.09-.23-.48-.94-.82-1.13c-.28-.15-.68-.52-.01-.53c.63-.01 1.08.58 1.23.82c.72 1.21 1.87.87 2.33.66c.07-.52.28-.87.5-1.07c-1.78-.2-3.64-.89-3.64-3.95c0-.87.31-1.59.82-2.15c-.08-.2-.36-1.02.08-2.12c0 0 .67-.21 2.2.82c.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82c.44 1.1.16 1.92.08 2.12c.51.56.82 1.27.82 2.15c0 3.07-1.87 3.75-3.65 3.95c.29.25.54.73.54 1.48c0 1.07-.01 1.93-.01 2.2c0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"
+                fill="currentColor"
+              />
+            </svg>
+            <svg v-else-if="item.icon === 'repository'" viewBox="0 0 16 16" aria-hidden="true" class="hero-quick-link-icon">
+              <path
+                d="M2 2.75A1.75 1.75 0 0 1 3.75 1h8.5C13.216 1 14 1.784 14 2.75v10.5A1.75 1.75 0 0 1 12.25 15h-8.5A1.75 1.75 0 0 1 2 13.25Zm1.75-.25a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25H5v-2.25C5 10.56 5.56 10 6.25 10h3.5c.69 0 1.25.56 1.25 1.25v2.25h1.25a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25Zm5.75 11v-2h-3v2Zm-3.75-8.75c0-.414.336-.75.75-.75h3.5a.75.75 0 0 1 0 1.5H6.5a.75.75 0 0 1-.75-.75Zm0 3c0-.414.336-.75.75-.75h3.5a.75.75 0 0 1 0 1.5H6.5a.75.75 0 0 1-.75-.75Z"
+                fill="currentColor"
+              />
+            </svg>
+            <svg v-else viewBox="0 0 16 16" aria-hidden="true" class="hero-quick-link-icon hero-quick-link-icon-gitee">
+              <rect width="16" height="16" rx="3.2" fill="#C71D23" />
+              <path
+                d="M3.25 5.1A2.35 2.35 0 0 1 5.6 2.75h4.8a2.35 2.35 0 0 1 0 4.7H7.15v1.4h3.05a2.35 2.35 0 1 1 0 4.7H5.6a2.35 2.35 0 0 1-2.35-2.35V5.1Zm3.9.85h3.25a.85.85 0 0 0 0-1.7H5.6a.85.85 0 0 0-.85.85v6.1c0 .47.38.85.85.85h4.6a.85.85 0 1 0 0-1.7H6.4a.75.75 0 0 1-.75-.75V6.7c0-.414.336-.75.75-.75Z"
+                fill="#fff"
+              />
+            </svg>
+            <svg viewBox="0 0 16 16" aria-hidden="true" class="hero-quick-link-arrow">
+              <path
+                d="M4.5 11.5L11.5 4.5M6 4.5h5.5V10"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+          </a>
+        </div>
         <article>
           <span>发布模型</span>
           <strong>两阶段切换</strong>
