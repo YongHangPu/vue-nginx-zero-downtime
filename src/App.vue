@@ -267,7 +267,7 @@ const copyCurrentTemplate = async () => {
   <div class="app-shell">
     <header class="hero-panel">
       <div class="hero-copy">
-        <p class="eyebrow">Vue + Nginx Deployment System</p>
+        <p class="eyebrow">Vue + Nginx 无感发布方案</p>
         <h1>vue-nginx-zero-downtime</h1>
         <p class="hero-lead">
           一套专门面向 Vue 静态站点的无感发布方案，覆盖发布目录整理、Nginx 缓存策略、双模式服务器发布脚本，以及页面内的版本更新提示组件。
@@ -343,7 +343,7 @@ const copyCurrentTemplate = async () => {
 
     <section id="fit-check" class="section-block section-spotlight section-fit-check">
       <div class="section-heading">
-        <p class="section-kicker">Quick Fit</p>
+        <p class="section-kicker">快速判断</p>
         <h2>先判断这套方案适不适合你的项目</h2>
       </div>
       <p class="demo-text">
@@ -359,7 +359,7 @@ const copyCurrentTemplate = async () => {
 
     <section id="start-here" class="section-block section-guide section-start">
       <div class="section-heading">
-        <p class="section-kicker">Start Here</p>
+        <p class="section-kicker">从这里开始</p>
         <h2>确定适合后，可以先从完整模板项目开始</h2>
       </div>
       <p class="demo-text">
@@ -375,7 +375,7 @@ const copyCurrentTemplate = async () => {
       </div>
       <div class="starter-checklist">
         <div class="section-heading compact">
-          <p class="section-kicker">Copy Checklist</p>
+          <p class="section-kicker">接入清单</p>
           <h2>第一次接入时的最小操作清单</h2>
         </div>
         <ul class="checklist-list">
@@ -384,7 +384,7 @@ const copyCurrentTemplate = async () => {
       </div>
       <div class="starter-checklist">
         <div class="section-heading compact">
-          <p class="section-kicker">File Checklist</p>
+          <p class="section-kicker">文件清单</p>
           <h2>如果你只想按需复制文件，可以先看这些</h2>
         </div>
         <ul class="checklist-list">
@@ -395,7 +395,7 @@ const copyCurrentTemplate = async () => {
 
     <section id="workflow" class="section-block section-guide section-workflow">
       <div class="section-heading">
-        <p class="section-kicker">Workflow</p>
+        <p class="section-kicker">发布流程</p>
         <h2>一条更容易上手的发布流程</h2>
       </div>
       <p class="demo-text">
@@ -414,7 +414,7 @@ const copyCurrentTemplate = async () => {
 
     <section id="path-modes" class="section-block section-detail section-path-modes">
       <div class="section-heading">
-        <p class="section-kicker">Path Modes</p>
+        <p class="section-kicker">路径模式</p>
         <h2>准备发布时，再来看路径模式怎么选</h2>
       </div>
       <p class="demo-text path-modes-intro">
@@ -444,7 +444,7 @@ const copyCurrentTemplate = async () => {
       </div>
       <div class="starter-checklist">
         <div class="section-heading compact">
-          <p class="section-kicker">How To Choose</p>
+          <p class="section-kicker">选择方式</p>
           <h2>可以这样判断</h2>
         </div>
         <ul class="checklist-list">
@@ -459,7 +459,7 @@ const copyCurrentTemplate = async () => {
 
     <section class="section-block section-principles">
       <div class="section-heading">
-        <p class="section-kicker">Why This Works</p>
+        <p class="section-kicker">原理说明</p>
         <h2>理解这 3 个原则，后面的细节会更容易看懂</h2>
       </div>
       <div class="principle-grid">
@@ -473,7 +473,7 @@ const copyCurrentTemplate = async () => {
     <section class="section-block demo-layout section-demo">
       <div class="demo-copy">
         <div class="section-heading">
-          <p class="section-kicker">Component Demo</p>
+          <p class="section-kicker">组件演示</p>
           <h2>更新提示组件交互演示</h2>
         </div>
         <p class="demo-text">
@@ -529,7 +529,7 @@ const copyCurrentTemplate = async () => {
 
     <section class="section-block section-faq">
       <div class="section-heading">
-        <p class="section-kicker">FAQ</p>
+        <p class="section-kicker">常见问题</p>
         <h2>最常见的 4 个问题</h2>
       </div>
       <div class="faq-list">
@@ -542,7 +542,7 @@ const copyCurrentTemplate = async () => {
 
     <section id="templates" class="section-block section-reference">
       <div class="section-heading">
-        <p class="section-kicker">Template Library</p>
+        <p class="section-kicker">模板代码库</p>
         <h2>可按需复制的模板代码</h2>
       </div>
       <div class="template-tabs">
